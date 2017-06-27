@@ -1,39 +1,15 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import * as Actions from '../actions';
-import GifList from '../components/GifList';
-import GifModal from '../components/GifModal';
-import SearchBar from '../components/SearchBar';
-import '../styles/app.css';
+import { ConnectedRouter } from 'react-router-redux';
+import { Route } from 'react-router-dom';
+import { history } from './../store/configureStore';
 
-class App extends React.Component {
+import Header from '../containers/Header';
+
+export default class App extends React.Component {
   render() {
-    console.log(this.props);
-    return (
-        <div>
-          <SearchBar onInputSubmit={this.props.actions.requestGifs}/>
-          <GifList gifs={ this.props.gifs } onGifSelect={ selectedGif => this.props.actions.openModal({selectedGif}) } />
-          <GifModal modalIsOpen={ this.props.modalIsOpen }
-                    selectedGif={ this.props.selectedGif }
-                    onRequestClose={ () => this.props.actions.closeModal() } />
-        </div>
+    return(
+      <ConnectedRouter history={history}>
+      </ConnectedRouter>
     );
   }
 }
-
-function mapStateToProps(state) {
-  return {
-    gifs: state.gifs.data,
-    modalIsOpen: state.modal.modalIsOpen,
-    selectedGif: state.modal.selectedGif
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(Actions, dispatch)
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);

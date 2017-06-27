@@ -13,7 +13,7 @@ class SearchBar extends React.Component {
   render() {
     return (
         <div className="search">
-          <input type="text" ref="term" placeholder="Enter text to search for gifs!"/><br/>
+          <input type="text" id="searchInput" ref="term" placeholder="Enter text to search for gifs!"/><br/>
           <input type="submit" onClick={this.onInputSubmit}/>
         </div>
     );

@@ -10,6 +10,7 @@
     "react-router-dom": "^4.1.1",
     "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^3.7.1",
+    "redux-form": "^6.8.0",
     "redux-promise": "^0.5.3",
     "superagent": "^3.5.2"
   },

@@ -35,7 +35,7 @@ class Header extends React.Component {
         <nav className="navbar navbar-default">
           <div className="container-fluid">
             <div className="navbar-header">
-              <Link className="navbar-brand" to="/">React2Gifs</Link>
+              <Link className="navbar-brand" to="/">React Gif Search</Link>
             </div>
             <ul className="nav navbar-nav navbar-right">
               { this.renderAuthLinks() }

@@ -24,7 +24,7 @@ class GifItem extends React.Component {
     }
 
     if (this.state.favorited) {
-      return <i className="favorite fa fa-heart" onClick={() => this.unfavoriteGif()}/>;
+      return <i className="favorite fa fa-heart red" onClick={() => this.unfavoriteGif()}/>;
     }
 
     return <i className="favorite fa fa-heart-o" onClick={() => this.favoriteGif()}/>

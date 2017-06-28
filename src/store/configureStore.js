@@ -3,6 +3,7 @@ import reduxThunk from 'redux-thunk';
 import rootReducer from '../reducers';
 import createHistory from 'history/createBrowserHistory';
 import { routerMiddleware } from 'react-router-redux';
+import * as Actions from '../actions';
 
 export const history = createHistory();
 
@@ -20,6 +21,8 @@ export function configureStore(initialState) {
       store.replaceReducer(nextRootReducer);
     });
   }
+
+  store.dispatch(Actions.verifyAuth());
 
   return store;
 }

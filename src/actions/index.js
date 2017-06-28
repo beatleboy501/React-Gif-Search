@@ -41,34 +41,43 @@ export function requestGifs(term = null) {
 
 export function fetchFavoritedGifs() {
   return function(dispatch) {
-    const userUid = Firebase.auth().currentUser.uid;
+    const user = Firebase.auth().currentUser;
+    if(user) {
+      const userUid = user.uid;
 
-    // Firebase's `on` method passes our favorited gifs into our Redux store
-    // The `on` method is a listener that fires when the initial data is
-    // stored at the specified location and again every time the data changes.
-    Firebase.database().ref(userUid).on('value', snapshot => {
-      dispatch({
-        type: FETCH_FAVORITED_GIFS,
-        payload: snapshot.val()
-      })
-    });
+      // Firebase's `on` method passes our favorited gifs into our Redux store
+      // The `on` method is a listener that fires when the initial data is
+      // stored at the specified location and again every time the data changes.
+      Firebase.database().ref(userUid).on('value', snapshot => {
+        dispatch({
+          type: FETCH_FAVORITED_GIFS,
+          payload: snapshot.val()
+        })
+      });
+    }
   }
 }
 
 export function favoriteGif({selectedGif}) {
-  const userUid = Firebase.auth().currentUser.uid;
-  const gifId = selectedGif.id;
+  const user = Firebase.auth().currentUser;
+  if(user){
+    const userUid = user.uid;
+    const gifId = selectedGif.id;
 
-  return dispatch => Firebase.database().ref(userUid).child(gifId).update({
-    [gifId]: selectedGif
-  });
+    return dispatch => Firebase.database().ref(userUid).update({
+      [gifId]: selectedGif
+    });
+  }
 }
 
 export function unfavoriteGif({selectedGif}) {
-  const userUid = Firebase.auth().currentUser.uid;
-  const gifId = selectedGif.id;
+  const user = Firebase.auth().currentUser;
+  if(user) {
+    const userUid = user.uid;
+    const gifId = selectedGif.id;
 
-  return dispatch => Firebase.database().ref(userUid).child(gifId).remove();
+    return dispatch => Firebase.database().ref(userUid).child(gifId).remove();
+  }
 }
 
 export function openModal(gif) {

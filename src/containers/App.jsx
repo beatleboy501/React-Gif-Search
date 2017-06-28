@@ -27,7 +27,7 @@ const PublicRoute = ({component: Component, authenticated, ...props}) => {
           {...props}
           render={(props) => authenticated === false
               ? <Component {...props} />
-              : <Redirect to='/favorites' />}
+              : <Redirect to='/' />}
       />
   );
 };
@@ -40,10 +40,10 @@ class App extends React.Component {
             <Header/>
 
             <div className="container">
-              <Route exact path="/" component={ Home }/>
-              <PublicRoute authenticated={this.props.authenticated }  path="/signup" component={ Signup } />
-              <PublicRoute authenticated={this.props.authenticated }  path="/login" component={ Login } />
-              <PrivateRoute authenticated={this.props.authenticated }  path="/favorites" component={ Favorites } />
+              <Route exact path="/" component={ Home } name="Home"/>
+              <PublicRoute authenticated={this.props.authenticated }  path="/signup" component={ Signup } name="Signup" />
+              <PublicRoute authenticated={this.props.authenticated }  path="/login" component={ Login } name="Login" />
+              <PrivateRoute authenticated={this.props.authenticated }  path="/favorites" component={ Favorites } name="Favorites" />
             </div>
           </div>
         </ConnectedRouter>

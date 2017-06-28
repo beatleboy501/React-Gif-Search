@@ -10,7 +10,7 @@ if (!props.selectedGif) {
       isOpen={ props.modalIsOpen }
       onRequestClose={ () => props.onRequestClose() }>
       <div className="gif-modal">
-        <img src={ props.selectedGif.images.original.url } />
+        <img src={ props.selectedGif.images.original.url } alt="Larger GIF not available"/>
         <p><strong>Source:</strong> <a href={ props.selectedGif.source }>{ props.selectedGif.source }</a></p>
         <p><strong>Rating:</strong> { props.selectedGif.rating }</p>
 

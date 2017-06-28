@@ -11,7 +11,7 @@ export const AUTH_ERROR = 'AUTH_ERROR';
 export const AUTH_USER = 'AUTH_USER';
 
 // TODO: Hide the info below
-const API_URL = 'http://api.giphy.com/v1/gifs/search?q=';
+const API_URL = `http${process.env.NODE_ENV === 'production' ? 's' : ''}://api.giphy.com/v1/gifs/search?q=`;
 const API_KEY = '&api_key=200209553d5d4584bc9278e00fdc3aef';
 
 const firebaseConfig = {

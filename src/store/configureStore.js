@@ -1,5 +1,5 @@
 import { createStore, compose, applyMiddleware } from 'redux';
-import ReduxPromise from 'redux-promise';
+import reduxThunk from 'redux-thunk';
 import rootReducer from '../reducers';
 import createHistory from 'history/createBrowserHistory';
 import { routerMiddleware } from 'react-router-redux';
@@ -8,7 +8,9 @@ export const history = createHistory();
 
 export function configureStore(initialState) {
   const store = createStore(rootReducer, initialState, compose (
-      applyMiddleware(ReduxPromise, routerMiddleware(history)),
+      // `reduxThunk` allows us to call actions from within
+      // action creators in an asynchronous way
+      applyMiddleware(reduxThunk, routerMiddleware(history)),
       window.devToolsExtension ? window.devToolsExtension() : f => f
   ));
 

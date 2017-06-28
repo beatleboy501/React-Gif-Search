@@ -3,12 +3,28 @@
     width: 90%;
 }
 
+.fa-heart, .fa-heart-o {
+    font-size: 12px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.red, .fa-heart-o:hover {
+    color: #a94442;
+}
+
+.fa-heart:hover, .red:hover {
+    color: #ccc;
+}
+
 .gif-item {
     box-shadow: 2px 2px 4px 0 #ccc;
     box-sizing: border-box;
     display: inline-block;
     margin: 0 0 1.5em;
     padding: 1em;
+    position: relative;
     width: 100%;
 }
 

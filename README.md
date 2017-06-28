@@ -4,12 +4,18 @@ Built using the tutorial by Samantha Geitz - http://bit.ly/2rI3bjb
 
 <hr>
 
-![Alt text](screenshot.png?raw=true "ScreenShot2.png")
+
+![Alt text](ScreenShot2.png?raw=true "ScreenShot2.png")
+
 
 <hr>
 
-![Alt text](screenshot.png?raw=true "ScreenShot3.png")
+
+![Alt text](ScreenShot3.png?raw=true "ScreenShot3.png")
+
 
 <hr>
 
-![Alt text](screenshot.png?raw=true "ScreenShot1.png")
+
+![Alt text](ScreenShot1.png?raw=true "ScreenShot1.png")
+
